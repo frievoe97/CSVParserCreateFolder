@@ -8,7 +8,7 @@ public class CSVParserCreateFolder {
 
     public static void main(String[] args) throws IOException {
 
-        String csvFile = "/Users/friedrich/test.csv";
+        String csvFile = args[1];
         BufferedReader reader = null;
         String line = null;
         String cvsSplitBy = ";";
@@ -50,6 +50,9 @@ public class CSVParserCreateFolder {
                 }
             }
         }
+
+        System.out.println("All folders were created!");
+
     }
 
     public static void createFolder(Path path, String name) throws IOException {
