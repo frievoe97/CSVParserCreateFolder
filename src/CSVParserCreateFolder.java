@@ -8,7 +8,7 @@ public class CSVParserCreateFolder {
 
     public static void main(String[] args) throws IOException {
 
-        String csvFile = "/Users/friedrich/file.csv";
+        String csvFile = "/Users/name/file.csv";
         BufferedReader reader = null;
         String line = null;
         String cvsSplitBy = ";";
