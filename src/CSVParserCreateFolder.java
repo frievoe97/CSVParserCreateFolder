@@ -8,11 +8,11 @@ public class CSVParserCreateFolder {
 
     public static void main(String[] args) throws IOException {
 
-        String csvFile = "/Users/name/file.csv";
+        String csvFile = "/Users/friedrich/test.csv";
         BufferedReader reader = null;
         String line = null;
         String cvsSplitBy = ";";
-        Integer numberOfColumn = 2;
+        Integer numberOfColumn = Integer.valueOf(args[0]);
 
         Path parentDir = Paths.get(csvFile).getParent();
         Path output = Paths.get(parentDir + "/output");
@@ -27,9 +27,9 @@ public class CSVParserCreateFolder {
 
                 String[]country = line.split(cvsSplitBy);
 
-                System.out.println(country[numberOfColumn]);
+                String value = country[numberOfColumn];
 
-                Path path = Paths.get(output + "/" + country[numberOfColumn]);
+                Path path = Paths.get(output + "/" + value);
                 Files.createDirectories(path);
 
                 createFolder(path, "Unterorder 1");
