@@ -1,6 +1,7 @@
 # CSVParserCreateFolder
-Dies ist ein CSV Parser, der aus den Spalten einer .csv Datei eine Ordnerstruktur erstellt, wobei die Namen der Ordner des Zellen der .csv Datei entsprechen. Es ist auch möglich gleichzeitig Unterordner zu erstellen.
 
-Voraussetzungen:
-- Die .csv Datei muss um UTF-8 Format sein
-- Die erste Zeile wird auch mit eingelesen, wenn das nicht erwünscht ist, bitte Manuell löschen
+This is a CSV parser that creates a folder structure from the columns of a .csv file, where the names of the folders of the cells correspond to the .csv file. It is also possible to create subfolders simultaneously.
+
+## Requirements:
+- The .csv file must be in UTF-8 format
+- The first line is also read in, if this is not desired, please delete manually
