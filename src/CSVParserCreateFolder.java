@@ -3,6 +3,8 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Collections;
+import java.util.List;
 
 public class CSVParserCreateFolder {
 
@@ -13,6 +15,8 @@ public class CSVParserCreateFolder {
         String line = null;
         String cvsSplitBy = ";";
         Integer numberOfColumn = Integer.valueOf(args[0]);
+        String subfolder = args[2];
+        String[] subfolderArray = subfolder.split(",");
 
         Path parentDir = Paths.get(csvFile).getParent();
         Path output = Paths.get(parentDir + "/output");
@@ -32,10 +36,11 @@ public class CSVParserCreateFolder {
                 Path path = Paths.get(output + "/" + value);
                 Files.createDirectories(path);
 
-                createFolder(path, "Unterorder 1");
-                createFolder(path, "Bela");
-                createFolder(path, "Friedrich");
-
+                for (String name : subfolderArray) {
+                    name = name.trim();
+                    System.out.println(name);
+                    createFolder(path, name);
+                }
             }
         } catch (FileNotFoundException e) {
             e.printStackTrace();
