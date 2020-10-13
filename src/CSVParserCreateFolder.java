@@ -22,6 +22,9 @@ public class CSVParserCreateFolder {
         Path output = Paths.get(parentDir + "/output");
         Files.createDirectories(output);
 
+        Integer countFolders = 0;
+        Integer countSubfolders = subfolderArray.length;
+
         try {
 
             reader = new BufferedReader(new InputStreamReader(new FileInputStream(
@@ -36,9 +39,10 @@ public class CSVParserCreateFolder {
                 Path path = Paths.get(output + "/" + value);
                 Files.createDirectories(path);
 
+                countFolders += 1;
+
                 for (String name : subfolderArray) {
                     name = name.trim();
-                    System.out.println(name);
                     createFolder(path, name);
                 }
             }
@@ -57,6 +61,8 @@ public class CSVParserCreateFolder {
         }
 
         System.out.println("All folders were created!");
+        System.out.println("\nA total of " + countFolders + " folders with " + countSubfolders + " subfolders each were created.\nThat makes a total of " + (countFolders * countSubfolders) + " folders. These are located in\nthe folder \"output\", which is in the same path as the .csv file.\n\nHave fun!");
+        System.out.println("\nIf you needed 10 seconds for each folder, if you had created it\nmanually, you would have saved " + ((countFolders * countSubfolders * 10)/60) + " minutes or " + ((countFolders * countSubfolders * 10)/3600) + " hours!");
 
     }
 
